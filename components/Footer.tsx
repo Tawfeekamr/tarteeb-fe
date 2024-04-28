@@ -57,10 +57,10 @@ function Footer() {
                             </a>
                         </li>
                         <hr className=" opacity-75"/>
-                        <li className="flex justify-center sm:justify-end opacity-75 ">
-                            <a href="#"  className="mt-8 xl:mt-1">
+                        <li className="flex justify-center sm:justify-start opacity-75 ">
+                            <span  className="mt-8 xl:mt-1">
                                 {footerData?.siteName} © {new Date().getFullYear()}
-                            </a>
+                            </span>
                         </li>
                     </ul>
                 </div>

@@ -23,12 +23,12 @@ export default function HomePage() {
                     <div className="h-1/2 flex flex-col  justify-between  max-w-screen-xl mx-auto">
                         <NavBar/>
 
-                        <div className="flex flex-col items-center max-w-screen-xl mx-auto">
+                        <div className="flex flex-col items-center max-w-screen-xl mx-auto mt-10 lg:mt-0">
                             <a href={websiteDate?.whatsappUrl}
-                                className="capitalize hover:animate-pulse bg-main-gradient py-3 lg:mt-20 px-6  rounded-full xl:text-16 text-12 text-white font-bold mb-6">
+                                className="capitalize cursor-pointer hover:animate-pulse bg-main-gradient py-3 lg:mt-20 px-6  rounded-full xl:text-16 text-12 text-white font-bold mb-6">
                                 {'Let\'s Talk! on WhatsApp'}
                             </a>
-                            <p className=" text-30 h-screen lg:h-auto lg:pb-32 sm:text-48 xl:text-80  leading-none max-w-2xl xl:max-w-3xl text-center text-white">
+                            <p className=" text-30 lg:h-auto lg:pb-32 sm:text-48 xl:text-80  leading-none max-w-2xl xl:max-w-3xl text-center text-white">
                                 <span className=" font-DM-Sans">Embark on</span> <span
                                 className=" font-Playfair-Display italic animate-zoom-fade-out">journeys</span> <span
                                 className=" font-DM-Sans">not</span> <span
@@ -38,13 +38,13 @@ export default function HomePage() {
                             </p>
                         </div>
                         <div
-                            className="flex flex-col sm:flex-row sm:justify-between xl:items-center max-w-screen-xl mx-auto w-full pb-14 xl:pb-20 px-2">
-                            <p className="text-white max-w-xs xl:max-w-sm text-14 xl:text-16 font-DM-Sans font-normal mb-8">Unlock
+                            className="flex flex-col lg:flex-row lg:justify-between xl:items-center max-w-screen-xl mx-auto w-full pb-14 xl:pb-20 px-2">
+                            <p className="text-white mt-7 text-center lg:text-left xl:max-w-sm text-14 xl:text-16 font-DM-Sans font-normal mb-8">Unlock
                                 the doors to diverse cultures, awe-inspiring landscapes, and thrilling adventures with
                                 us.</p>
-                            <div>
+                            <div className={'flex justify-center mt-12'}>
                                 <a href={"#trips"}
-                                   className="border-animate text-white flex items-center font-DM-Sans bg-slate-400 rounded-full font-bold gap-3 py-2 px-8 ">
+                                   className="border-animate text-white flex justify-between w-[300px] lg:w-auto items-center font-DM-Sans bg-slate-400 rounded-full font-bold gap-3 py-2 px-8">
                                     <span>Explore Now</span>
                                     <img src="./img/Arrow-Icon.svg" alt="arrow"/>
                                 </a>
