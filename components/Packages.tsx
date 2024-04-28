@@ -1,37 +1,25 @@
+'use client'
 
+import {useEffect, useState} from "react";
+import {getPackagesData} from "@/services";
+import {Package} from "@/types/packages";
+import {BACKEND_URL} from "@/utils/statics";
+import {SiteInfo} from "@/types/siteInfo";
 
-function Packages() {
-    const slider =[
-        {
-            id:1,
-            img:'./img/card.jpg',
-            text:'Tropical Paradise',
-            span:'7 days, 6 nights',
-            price:'$999'
-        },
-        {
-            id:2,
-            img:'./img/card.jpg',
-            text:'Tropical Paradise',
-            span:'10 days, 9 nights',
-            price:'$1299'
-        },
-        {
-            id:3,
-            img:'./img/card.jpg',
-            text:'Tropical Paradise',
-            span:'5 days, 4 nights',
-            price:'$899'
-        },
-        {
-            id:4,
-            img:'./img/card.jpg',
-            text:'Tropical Paradise',
-            span:'8 days, 7 nights',
-            price:'$1099'
-        },
-    ]
+interface  Props {
+    websiteDate: SiteInfo | null
+}
+function Packages({websiteDate}: Props): JSX.Element {
+    const [packagesData, setPackagesData] = useState<any[] | []>([]);
+    useEffect(() => {
+        getPackagesData().then((res) => {
+            setPackagesData(res.data.docs);
+        }).catch(err => console.log(err));
+    }, []);
 
+    if(packagesData.length === 0) {
+        return <></>
+    }
     return (
         <>
             <section id={"trips"}>
@@ -41,16 +29,16 @@ function Packages() {
                     </div>
                     <div className=" xl:max-w-md">
                         <p className="text-20 font-normal text-black-soft mb-7 opacity-75">Indulge in our carefully crafted packages to immerse you in the most captivating and transformative travel adventures.</p>
-                        <a href="#" className="text-16 font-bold text-black-soft">See All Packages</a>
+                        {/*<a href="#" className="text-16 font-bold text-black-soft">See All Packages</a>*/}
                     </div>
                 </div>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-10">
-                    {slider.map((item)=>{
+                    {packagesData.map((pack: any)=>{
                         return(
-                            <span key={item.id}>
-                                <a href="#">
+                            <span key={pack?.id}>
+                                <a href="#" className={' block relative overflow-hidden'}>
                                     <li className="h-424 w-full rounded-xl bg-cover  bg-card-gradiant"
-                                        style={{backgroundImage: `radial-gradient(at center, #ffffff00, #01010142),url(${item.img})`}}>
+                                        style={{backgroundImage: `radial-gradient(at center, #ffffff00, #01010142),url(${BACKEND_URL + pack?.image?.url || './img/card.jpg'})`}}>
                                         <div className="flex flex-col justify-between h-full p-4">
                                             <div className="flex justify-end">
                                                 {/*<div*/}
@@ -59,12 +47,12 @@ function Packages() {
                                                 {/*</div>*/}
                                             </div>
                                             <div>
-                                                <p className="text-16 xl:text-20 font-bold text-white font-DM-Sans text-nowrap">{item.text}</p>
+                                                <p className="text-16 xl:text-20 font-bold text-white font-DM-Sans text-nowrap">{pack?.title}</p>
                                                 <div className="flex justify-between ">
                                                     <span
-                                                        className=" text-14 xl:text-16 font-normal text-white font-DM-Sans">{item.span}</span>
+                                                        className=" text-14 xl:text-16 font-normal text-white font-DM-Sans">{pack?.duration?.days} days, {pack?.duration.nights} Nights </span>
                                                     <span
-                                                        className="text-16 xl:text-20 font-normal text-white font-DM-Sans">{item.price}</span>
+                                                        className="text-16 xl:text-20 font-normal text-white font-DM-Sans">{pack?.price} {websiteDate?.currency}</span>
                                                 </div>
                                             </div>
                                         </div>

@@ -11,17 +11,17 @@ function NavBar() {
                         </span>
                         <div>
                             <ul className='md:flex text-white font-normal text-base font-DM-Sans hidden'>
-                                <li className={'border-animate p-2 rounded-xl w-[100px] text-center mx-3'}>
-                                    <a href="#" className={''}>Trips</a>
+                                <li className={''}>
+                                    <a href="#trips" className={'border-animate p-2 px-3 rounded-xl w-[100px] text-center mx-3'}>Trips</a>
                                 </li>
-                                <li className={'border-animate ease-in-out p-2 rounded-xl w-[100px] text-center mx-3'}>
-                                    <a href="#">Destination</a>
+                                <li className={''}>
+                                    <a href="#" className={'border-animate ease-in-out p-2 px-3 rounded-xl w-[100px] text-center mx-3'}>Destination</a>
                                 </li>
-                                <li className={'border-animate transition duration-300 ease-in-out p-2 rounded-xl w-[100px] text-center mx-3'}>
-                                    <a href="#">About</a>
+                                <li className={''}>
+                                    <a href="#about" className={'border-animate transition duration-300 ease-in-out p-2 px-3 rounded-xl w-[100px] text-center mx-3'}>About</a>
                                 </li>
-                                <li className={'border-animate transition duration-300 ease-in-out p-2 rounded-xl w-[100px] text-center mx-3'}>
-                                    <a href="#">Contact</a>
+                                <li className={''}>
+                                    <a href="#" className={'border-animate transition duration-300 ease-in-out p-2 px-3 rounded-xl w-[100px] text-center mx-3'}>Contact</a>
                                 </li>
                             </ul>
                             <div>

@@ -10,5 +10,9 @@ export type SiteInfo = {
     createdAt?: string;
     updatedAt?: string;
     globalSiteSetting: string;
+    currency: {
+        label: string;
+        value: string;
+    }[]
 };
 

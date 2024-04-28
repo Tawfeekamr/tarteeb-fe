@@ -11,15 +11,15 @@ function Footer() {
     }, []);
     return (
         <>
-            <section className=" bg-black-soft  ">
+            <section className="bg-black-soft">
                 <div
                     className=" max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-5 text-center sm:text-start text-white font-DM-Sans  text-16 space-y-10 sm:space-y-0  py-16 px-2 xl:px-0 ">
-                    <ul className=" space-y-2">
+                    <ul className="space-y-2">
                         <li className="font-bold"><a href="#">Discover</a></li>
-                        <li className=" opacity-75"><a href="#">Home</a></li>
-                        <li className=" opacity-75"><a href="#">About Us</a></li>
-                        <li className=" opacity-75"><a href="#">Trip Packages</a></li>
-                        <li className=" opacity-75"><a href="#">Travel Blog</a></li>
+                        <li className="opacity-75"><a href="#">Home</a></li>
+                        <li className="opacity-75"><a href="#">About Us</a></li>
+                        <li className="opacity-75"><a href="#">Trip Packages</a></li>
+                        <li className="opacity-75"><a href="#">Travel Blog</a></li>
                     </ul>
                     <ul className=" space-y-2">
                         <li className="font-bold"><a href="#">Services</a></li>

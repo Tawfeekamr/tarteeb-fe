@@ -3,15 +3,15 @@ import NavBar from "@/components/NavBar";
 import Packages from "@/components/Packages";
 import Footer from "@/components/Footer";
 import {useEffect, useState} from "react";
-import {getMetaDate} from "@/services";
+import {getMetaData} from "@/services";
 import {SiteInfo} from "@/types/siteInfo";
 
 export default function HomePage() {
-    const [websiteDate, setWebsiteDate] = useState<SiteInfo | null>(null);
+    const [websiteDate, setWebsiteData] = useState<SiteInfo | null>(null);
     useEffect(() => {
-        getMetaDate().then(res =>{
+        getMetaData().then(res =>{
             const settingsData = res.data.docs[0]
-            setWebsiteDate(settingsData)
+            setWebsiteData(settingsData)
             localStorage.setItem('metaData', JSON.stringify(settingsData));
         }).catch(err => console.log(err))
     }, []);
@@ -19,22 +19,22 @@ export default function HomePage() {
         <>
             <main>
                 <section className=" bg-cover "
-                         style={{backgroundImage: "radial-gradient(at center, #ffffff00, #01010142), url(./img/heroImg.jpg)"}}>
+                         style={{backgroundImage: `radial-gradient(at center, #ffffff00, #01010142), url(./img/heroImg.jpg)`}}>
                     <div className="h-1/2 flex flex-col  justify-between  max-w-screen-xl mx-auto">
                         <NavBar/>
 
-                        <div className="flex flex-col  items-center max-w-screen-xl mx-auto">
+                        <div className="flex flex-col items-center max-w-screen-xl mx-auto">
                             <a href={websiteDate?.whatsappUrl}
-                                className="capitalize bg-main-gradient py-3 lg:mt-20 px-6  rounded-full xl:text-16 text-12 text-white font-bold mb-6">
+                                className="capitalize hover:animate-pulse bg-main-gradient py-3 lg:mt-20 px-6  rounded-full xl:text-16 text-12 text-white font-bold mb-6">
                                 {'Let\'s Talk! on WhatsApp'}
                             </a>
                             <p className=" text-30 h-screen lg:h-auto lg:pb-32 sm:text-48 xl:text-80  leading-none max-w-2xl xl:max-w-3xl text-center text-white">
                                 <span className=" font-DM-Sans">Embark on</span> <span
-                                className=" font-Playfair-Display italic">journeys</span> <span
+                                className=" font-Playfair-Display italic animate-zoom-fade-out">journeys</span> <span
                                 className=" font-DM-Sans">not</span> <span
-                                className=" font-Playfair-Display italic">just</span> <span
+                                className=" font-Playfair-Display italic animate-zoom-fade-out">just</span> <span
                                 className=" font-DM-Sans">destinations</span><span
-                                className=" font-DM-Sans"> with</span><span className=" font-Playfair-Display italic"> our trips.</span>
+                                className=" font-DM-Sans"> with</span><span className=" font-Playfair-Display italic animate-zoom-fade-out"> our trips.</span>
                             </p>
                         </div>
                         <div
@@ -53,7 +53,7 @@ export default function HomePage() {
                     </div>
                 </section>
                 <section className=" max-w-screen-xl mx-auto mt-24 px-2 xl:px-0">
-                    <Packages/>
+                    <Packages websiteDate={websiteDate} />
                 </section>
                 <section className="bg-gray-soft">
                     <section className="max-w-screen-xl mx-auto  mt-24 py-24 px-2 xl:px-0">
@@ -124,7 +124,7 @@ export default function HomePage() {
                 </section>
                 <section className="  px-2 xl:px-0">
                     <section className=" max-w-screen-xl mx-auto bg-gray-dark h-560 rounded-3xl mt-24">
-                        <div className="flex flex-col justify-center items-center h-full">
+                        <div id={'about'} className="flex flex-col justify-center items-center h-full">
                             <a href="#">
                                 <div
                                     className=" bg-heart-gradiant rounded-full w-100 h-100 flex justify-center items-center">
@@ -149,10 +149,10 @@ export default function HomePage() {
                                 className=" font-Playfair-Display italic">stories</span> <span
                                 className=" font-DM-Sans">from travelers</span>
                             </h2>
-                            <div className="hidden sm:flex space-x-4">
-                                <a href="#"><img src="./img/Left-Arrow.svg" alt="icon"/></a>
-                                <a href="#"><img src="./img/Right-Arrow.svg" alt="icon"/></a>
-                            </div>
+                            {/*<div className="hidden sm:flex space-x-4">*/}
+                            {/*    <a href="#"><img src="./img/Left-Arrow.svg" alt="icon"/></a>*/}
+                            {/*    <a href="#"><img src="./img/Right-Arrow.svg" alt="icon"/></a>*/}
+                            {/*</div>*/}
                         </div>
                     </div>
 
@@ -167,9 +167,10 @@ export default function HomePage() {
                             <div className="flex gap-5">
                                 <img src="./img/circle.svg" alt="circle"/>
                                 <div>
-                                    <p className=" text-16 font-bold text-black-soft font-DM-Sans text-nowrap sm:text-wrap ">Priya
-                                        Marcella</p>
-                                    <span className=" text-16 font-normal text-black-soft font-DM-Sans ">India</span>
+                                    <p className=" text-16 font-bold text-black-soft font-DM-Sans text-nowrap sm:text-wrap ">
+                                        Tawfeeq Amro
+                                    </p>
+                                    <span className=" text-16 font-normal text-black-soft font-DM-Sans ">Jordan</span>
                                 </div>
                             </div>
                         </li>
@@ -181,9 +182,9 @@ export default function HomePage() {
                             <div className="flex gap-5">
                                 <img src="./img/circle.svg" alt="circle"/>
                                 <div>
-                                    <p className=" text-16 font-bold text-black-soft font-DM-Sans text-nowrap sm:text-wrap ">Jose
-                                        Miguel</p>
-                                    <span className=" text-16 font-normal text-black-soft font-DM-Sans ">Spain</span>
+                                    <p className=" text-16 font-bold text-black-soft font-DM-Sans text-nowrap sm:text-wrap ">
+                                        Rashid Dwaik</p>
+                                    <span className=" text-16 font-normal text-black-soft font-DM-Sans ">UAE</span>
                                 </div>
                             </div>
                         </li>
